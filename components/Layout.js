@@ -6,7 +6,7 @@ export default function Layout({ children }) {
         <div className="bg-[#111111] min-h-screen">
             <Navbar />
             <main className="pt-10">{children}</main>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }

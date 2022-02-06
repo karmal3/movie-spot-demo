@@ -1,13 +1,15 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import useWindowMobile from '../hooks/useWindowMobile';
 
 export default function Navbar() {
     const [show, handleShow] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const router = useRouter()
-
+    const isMobile = useWindowMobile();
+    
     const searchClick = () => {
         setSearchOpen(!searchOpen);
     }
@@ -35,7 +37,7 @@ export default function Navbar() {
     }, []);
 
     return (
-        <div className={`px-10 py-4 flex justify-between text-gray-50 fixed w-full z-50 ${show && 'backdrop-filter backdrop-blur-md bg-[#111111] bg-opacity-50'} ease-in transition-all`}>
+        <div className={`px-5 sm:px-10 py-4 flex justify-between text-gray-50 fixed w-full z-50 ${show && 'backdrop-filter backdrop-blur-md bg-[#111111] bg-opacity-50'} ease-in transition-all`}>
             <div className="flex items-center space-x-4">
                 {/* <h1>Logo</h1> */}
                 <nav className="space-x-3 font-semibold flex justify-center">

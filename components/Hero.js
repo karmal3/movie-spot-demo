@@ -46,7 +46,7 @@ export default function Hero({ movie, h }) {
                     <div className='absolute z-10 right-0 w-full max-w-[500px] h-full bg-gradient-to-l from-[#111111] to-transparent'></div>
                     <div className='absolute z-10 bottom-0 w-full h-full max-h-[500px] bg-gradient-to-t from-[#111111] to-transparent'></div>
 
-                    <div className='absolute z-20 px-10 top-[15%] sm:top-1/3 flex flex-col justify-center items-start space-y-2'>
+                    <div className='absolute z-20 px-5 sm:px-10 top-[15%] sm:top-1/3 flex flex-col justify-center items-start space-y-2'>
 
                         <div className='flex flex-wrap items-center gap-3'>
                             <span className='flex justify-center items-center gap-1 uppercase font-thin border border-solid border-yellow-600 text-yellow-500 px-2 rounded-md text-sm'>
@@ -116,7 +116,7 @@ export default function Hero({ movie, h }) {
                         alt={movie.data.original_title}
                     />
                 </div>
-                <div className='flex justify-center items-center w-full px-10'>
+                <div className='flex justify-center items-center w-full px-5 sm:px-10'>
                     {
                         movie.data.production_companies.map((company, index) => (
                             company.logo_path !== null &&

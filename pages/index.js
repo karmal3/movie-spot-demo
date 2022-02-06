@@ -71,7 +71,7 @@ export default function Home({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Hero movie={data.randomMovie} h={75} />
+      <Hero movie={data.randomMovie} h={isMobile ? 50 : 75} />
       <Carousel title={"Trending"} data={data.trending} cardHeight={isMobile ? 230 : 400} cardWidth={isMobile ? 150 : 270} />
       <Carousel title={"Top Rated"} data={data.top_rated} cardHeight={isMobile ? 230 : 400} cardWidth={isMobile ? 150 : 270} />
       <Carousel title={"Upcoming"} data={data.upcoming} cardHeight={isMobile ? 230 : 400} cardWidth={isMobile ? 150 : 270} />
