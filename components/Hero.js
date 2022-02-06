@@ -49,14 +49,14 @@ export default function Hero({ movie, h }) {
                     <div className='absolute z-20 px-10 top-[15%] sm:top-1/3 flex flex-col justify-center items-start space-y-2'>
 
                         <div className='flex flex-wrap items-center gap-3'>
-                            <span className='flex justify-center items-center gap-1 uppercase font-thin ring-1 ring-yellow-600 text-yellow-500 px-2 rounded-md text-sm'>
+                            <span className='flex justify-center items-center gap-1 uppercase font-thin border border-solid border-yellow-600 text-yellow-500 px-2 rounded-md text-sm'>
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                                 </svg>
                                 {movie.data.vote_average}
                             </span>
-                            <span className='uppercase font-thin ring-1 ring-gray-500 px-2 rounded-md text-sm'>{movie.data.original_language}</span>
-                            <span className='font-thin ring-1 ring-gray-500 px-2 rounded-md text-sm'>{movie.data.release_date}</span>
+                            <span className='uppercase font-thin border border-solid border-gray-500 px-2 rounded-md text-sm'>{movie.data.original_language}</span>
+                            <span className='font-thin border border-solid border-gray-500 px-2 rounded-md text-sm'>{movie.data.release_date}</span>
                             <div className='font-thin text-sm flex flex-wrap gap-1'>
                                 <AddSeparators separator={`\u2022`}>
                                     {
@@ -80,7 +80,7 @@ export default function Hero({ movie, h }) {
                                         <svg xmlns="http://www.w3.org/2000/svg" className="relative h-5 w-5 group-hover:text-white" viewBox="0 0 20 20" fill="currentColor">
                                             <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm3 2h6v4H7V5zm8 8v2h1v-2h-1zm-2-2H7v4h6v-4zm2 0h1V9h-1v2zm1-4V5h-1v2h1zM5 5v2H4V5h1zm0 4H4v2h1V9zm-1 4h1v2H4v-2z" clipRule="evenodd" />
                                         </svg>
-                                        <span className="hidden sm:block relative group-hover:text-white">Watch trailer</span>
+                                        <span className=" relative group-hover:text-white">Watch trailer</span>
                                     </button>
                                 }
                                 <button className="relative w-auto px-4 py-2 group overflow-hidden font-semibold text-sm bg-black text-gray-100 flex justify-center items-center gap-2">
@@ -89,7 +89,7 @@ export default function Hero({ movie, h }) {
                                     <svg xmlns="http://www.w3.org/2000/svg" className="relative h-5 w-5 group-hover:text-red-600" viewBox="0 0 20 20" fill="currentColor">
                                         <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                                     </svg>
-                                    <span className="hidden sm:block relative group-hover:text-white">Add to watchlist</span>
+                                    <span className="relative group-hover:text-white">Add to watchlist</span>
                                 </button>
                             </div>
                         </div>
