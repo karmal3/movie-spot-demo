@@ -116,7 +116,7 @@ export default function Hero({ movie, h }) {
                         alt={movie.data.original_title}
                     />
                 </div>
-                <div className='flex justify-center items-center space-x-3 w-full'>
+                <div className='flex justify-center items-center w-full px-10'>
                     {
                         movie.data.production_companies.map((company, index) => (
                             company.logo_path !== null &&

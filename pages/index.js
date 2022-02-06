@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect, useState } from 'react';
 import Carousel from '../components/Carousel';
 import Hero from '../components/Hero';
+import useWindowMobile from '../hooks/useWindowMobile';
 
 export async function getServerSideProps() {
   const maxPageNum = 2
@@ -38,7 +40,7 @@ export async function getServerSideProps() {
     const movieVideosRes = await fetch(`https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=${process.env.API_KEY}&language=en-US`)
     const trailer = await movieVideosRes.json();
 
-    return {data, trailer}
+    return { data, trailer }
   }
 
   // Fetch data from external API
@@ -56,6 +58,10 @@ export async function getServerSideProps() {
 }
 
 export default function Home({ data }) {
+  
+
+  const isMobile = useWindowMobile();
+  //console.log(isMobile)
   //console.log(data)
   return (
     <div >
@@ -65,11 +71,12 @@ export default function Home({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Hero movie={data.randomMovie} h={75}/>
-      <Carousel title={"Trending"} data={data.trending} cardHeight={400} cardWidth={270}/>
-      <Carousel title={"Top Rated"} data={data.top_rated} cardHeight={400} cardWidth={270}/>
-      <Carousel title={"Upcoming"} data={data.upcoming} cardHeight={400} cardWidth={270}/>
+      <Hero movie={data.randomMovie} h={75} />
+      <Carousel title={"Trending"} data={data.trending} cardHeight={isMobile ? 230 : 400} cardWidth={isMobile ? 150 : 270} />
+      <Carousel title={"Top Rated"} data={data.top_rated} cardHeight={isMobile ? 230 : 400} cardWidth={isMobile ? 150 : 270} />
+      <Carousel title={"Upcoming"} data={data.upcoming} cardHeight={isMobile ? 230 : 400} cardWidth={isMobile ? 150 : 270} />
 
     </div>
   )
 }
+

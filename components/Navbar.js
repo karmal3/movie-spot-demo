@@ -82,7 +82,7 @@ export default function Navbar() {
                     </a>
                 </Link>
 
-                <a className="px-3 py-1 my-1 ring-2 ring-red-700 text-red-600 rounded-md font-semibold text-sm cursor-pointer hover:ring-red-600 hover:text-red-500 transition duration-300 ease-out">Log in</a>
+                <a className="px-3 py-1 my-1 border-2 border-solid border-red-700 text-red-700 rounded-md font-semibold text-sm cursor-pointer hover:border-red-600 hover:text-red-600 transition duration-300 ease-out">Log in</a>
             </div>
 
         </div>

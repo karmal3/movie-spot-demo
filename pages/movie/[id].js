@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Hero from '../../components/Hero';
 import Carousel from '../../components/Carousel';
 import { useEffect, useState } from 'react';
+import useWindowMobile from '../../hooks/useWindowMobile';
 
 export async function getServerSideProps(context) {
     const { id } = context.query;
@@ -28,6 +29,7 @@ export async function getServerSideProps(context) {
 }
 
 export default function Movie({ movie, credits, recommendations }) {
+    const isMobile = useWindowMobile();
     //console.log(credits)
     const [hasData, setHasData] = useState(false);
     
@@ -56,7 +58,6 @@ export default function Movie({ movie, credits, recommendations }) {
 
             <Hero movie={movie} h={90} />
 
-
             <>
                 {hasData &&
                     <Carousel
@@ -71,14 +72,12 @@ export default function Movie({ movie, credits, recommendations }) {
                     recommendations.total_results > 0 &&
                     <Carousel
                         title={"Recommendations"}
-                        cardHeight={400}
-                        cardWidth={270}
+                        cardHeight={isMobile ? 230 : 400} 
+                        cardWidth={isMobile ? 150 : 270}
                         data={recommendations}
                     />
                 }
             </>
-
-
         </>
     )
 }
