@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react';
 import Carousel from '../components/Carousel';
 import Hero from '../components/Hero';
-import useWindowMobile from '../hooks/useWindowMobile';
+import useWindowSize from '../hooks/useWindowSize';
 
 export async function getServerSideProps() {
   const maxPageNum = 2
@@ -58,10 +58,8 @@ export async function getServerSideProps() {
 }
 
 export default function Home({ data }) {
-  
+  const { isMobile } = useWindowSize();
 
-  const isMobile = useWindowMobile();
-  //console.log(isMobile)
   //console.log(data)
   return (
     <div >

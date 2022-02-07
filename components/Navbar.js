@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import useWindowMobile from '../hooks/useWindowMobile';
+import { useEffect, useRef, useState } from 'react';
+import useWindowSize from '../hooks/useWindowSize';
 
 export default function Navbar() {
     const [show, handleShow] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const router = useRouter()
-    const isMobile = useWindowMobile();
-    
+    const { isMobile } = useWindowSize();
+
     const searchClick = () => {
         setSearchOpen(!searchOpen);
     }
@@ -56,10 +56,11 @@ export default function Navbar() {
                     </svg>
                     {searchOpen ?
                         <>
-                            <input className="px-4 font-thin bg-transparent outline-none"
+                            <input autoFocus className="px-4 font-thin bg-transparent outline-none"
                                 type="text"
                                 onKeyDown={handleKeyDown}
                                 onBlur={() => setSearchOpen(false)}
+
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 placeholder="Search movies, tv shows..."
                             />

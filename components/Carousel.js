@@ -1,11 +1,11 @@
 import { Children, Fragment, useEffect, useState, useRef } from 'react';
-import useWindowMobile from '../hooks/useWindowMobile';
+import useWindowSize from '../hooks/useWindowSize';
 import Card from './Card';
 import CastCard from './CastCard';
 
 export default function Carousel({ data, type, title, cardHeight, cardWidth }) {
     const carouselRef = useRef(null);
-    const isMobile = useWindowMobile()
+    const { isMobile } = useWindowSize()
     const [isHidden, setIsHidden] = useState(false)
 
     const [rightArrow, setRightArrow] = useState(false);
