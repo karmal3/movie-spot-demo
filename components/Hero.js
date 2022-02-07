@@ -21,7 +21,6 @@ export default function Hero({ movie, h }) {
     //console.log(showLess)
 
     useEffect(() => {
-        //console.log(movieContentRef.current.clientHeight)
         setHeight(movieContentRef.current.clientHeight)
     }, [windowSize.width, showLess]);
  
@@ -58,13 +57,13 @@ export default function Hero({ movie, h }) {
             }
 
             <div className='text-gray-200 -mt-10'>
-                <div style={height !== 0 ? { height: `${height}px` } : { height: `80vh` }} className='relative'>
+                <div style={height !== 0 ? { height: `${height}px` } : { height: `${h}vh` }} className='relative'>
 
                     <div className='absolute z-10 w-full max-w-[1000px] h-full bg-gradient-to-r from-[#111111] to-transparent'></div>
                     <div className='absolute z-10 right-0 w-full max-w-[500px] h-full bg-gradient-to-l from-[#111111] to-transparent'></div>
                     <div className='absolute z-10 bottom-0 w-full h-full max-h-[500px] bg-gradient-to-t from-[#111111] to-transparent'></div>
 
-                    <div ref={movieContentRef} className='absolute z-20 px-5 py-32 sm:py-64  sm:px-10 flex flex-col justify-center items-start space-y-2'>
+                    <div ref={movieContentRef} className='absolute z-20 px-5 py-32 sm:py-64 sm:px-10 flex flex-col justify-center items-start w-full space-y-2'>
 
                         <div className='flex flex-wrap items-center gap-3'>
                             <span className='flex justify-center items-center gap-1 uppercase font-thin border border-solid border-yellow-600 text-yellow-500 px-2 rounded-md text-sm'>

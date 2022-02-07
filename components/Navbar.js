@@ -40,17 +40,18 @@ export default function Navbar() {
         <div className={`px-5 sm:px-10 py-4 flex justify-between text-gray-50 fixed w-full z-50 ${show && 'backdrop-filter backdrop-blur-md bg-[#111111] bg-opacity-50'} ease-in transition-all`}>
             <div className="flex items-center space-x-4">
                 {/* <h1>Logo</h1> */}
-                <nav className="space-x-3 font-semibold flex justify-center">
-                    <Link href='/' passHref>
-                        <a className="cursor-pointer outline-none hover:text-red-600 transition duration-300 ease-out flex">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                            </svg>
-                        </a>
-                    </Link>
-                </nav>
-
-                <div className={`flex items-center justify-center cursor-pointer ${searchOpen ? "w-full border-red-600 border-b" : ""}`}>
+               
+                    <nav className={`space-x-3 font-semibold flex justify-center ${searchOpen ? "hidden sm:block" : "block"}`}>
+                        <Link href='/' passHref>
+                            <a className="cursor-pointer outline-none hover:text-red-600 transition duration-300 ease-out flex">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                                </svg>
+                            </a>
+                        </Link>
+                    </nav>
+                
+                <div className={`flex items-center justify-center cursor-pointer ${searchOpen && "w-full border-red-600 border-b"}`}>
                     <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 m-1 text-white ${searchOpen ? "text-red-600" : "hover:text-red-600"}`} onClick={searchClick} viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
                     </svg>
@@ -71,7 +72,7 @@ export default function Navbar() {
                 </div>
 
             </div>
-            <div className='space-x-4 flex items-center'>
+            <div className={`space-x-4 flex items-center ${searchOpen ? "hidden sm:block" : "block"}`}>
                 <Link href='/watchlist' passHref>
                     <a className="relative group flex gap-1 px-3 py-1 my-1 text-gray-200 font-semibold text-sm cursor-pointer hover:text-red-600 transition duration-300 ease-out">
                         <>
@@ -87,8 +88,7 @@ export default function Navbar() {
 
                 <a className="px-3 py-1 my-1 border-2 border-solid border-red-700 text-red-700 rounded-md font-semibold text-sm cursor-pointer hover:border-red-600 hover:text-red-600 transition duration-300 ease-out">Log in</a>
             </div>
-
-        </div>
+        </div >
     )
 }
 
