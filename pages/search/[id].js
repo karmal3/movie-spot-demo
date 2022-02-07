@@ -21,7 +21,6 @@ export default function Search({ search }) {
     const router = useRouter();
     //console.log(search.id)
 
-
     const searchResultsPages = () => {
         var pages = [];
         for (let i = 1; i <= search.data.total_pages; i++) {
@@ -57,7 +56,7 @@ export default function Search({ search }) {
             </Head>
             {
                 search.data?.results.length === 0 ?
-                    <div className='flex flex-col justify-center items-center min-h-screen'>
+                    <div className='flex flex-col px-5 sm:px-10 py-10 justify-center items-center min-h-screen'>
                         <div className='flex flex-col items-start'>
                             <h1 className="text-gray-300 font-thin text-6xl bg-red-700 p-4">Nothing was found</h1>
                             <span className="text-gray-300 font-thin text-xl">Try to change your search request, check that you have entered the search name correctly.</span>
@@ -65,18 +64,18 @@ export default function Search({ search }) {
 
                     </div>
                     :
-                    <div className="flex flex-col px-10 py-5 space-y-4">
+                    <div className="flex flex-col px-5 sm:px-10 py-10 space-y-4">
 
                         <div className='flex items-center gap-1 text-lg font-extralight'>
                             <span className='text-red-600 text-lg font-semibold'>|</span>
                             <h1 className="text-gray-300">Search results for: {search.id}</h1>
                         </div>
 
-                        <div className="grid grid-cols-10 gap-4">
+                        <div class="grid justify-items-center grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-9">
                             {
                                 search.data?.results?.map((searchResult, index) => (
                                     (searchResult.backdrop_path !== null || searchResult.poster_path !== null) &&
-                                    <Card key={index} data={searchResult} w={180} h={280} />
+                                    <Card key={index} data={searchResult} w={150} h={230} />
 
                                 ))
                             }
