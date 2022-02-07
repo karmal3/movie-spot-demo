@@ -7,17 +7,24 @@ import YoutubeEmbed from './YoutubeEmbed';
 
 export default function Hero({ movie, h }) {
     const movieContentRef = useRef(null);
+    const overviewContentRef = useRef(null);
+    const [showLess, setShowLess] = useState(true);
     const [open, setOpen] = useState(false);
     const [height, setHeight] = useState(0);
     const { windowSize } = useWindowSize()
 
-    //console.log(windowSize.width)
+    const handleShowLess = () => {
+        setShowLess(false);
+    }
+
+    //console.log(overviewContentRef)
+    //console.log(showLess)
+
     useEffect(() => {
         //console.log(movieContentRef.current.clientHeight)
         setHeight(movieContentRef.current.clientHeight)
-    }, [windowSize.width]);
-
-
+    }, [windowSize.width, showLess]);
+ 
     useEffect(() => {
         return function cleanup() {
             document.body.style.overflow = 'unset';
@@ -51,7 +58,7 @@ export default function Hero({ movie, h }) {
             }
 
             <div className='text-gray-200 -mt-10'>
-                <div style={{ height: `${height}px` }} className='relative'>
+                <div style={height !== 0 ? { height: `${height}px` } : { height: `80vh` }} className='relative'>
 
                     <div className='absolute z-10 w-full max-w-[1000px] h-full bg-gradient-to-r from-[#111111] to-transparent'></div>
                     <div className='absolute z-10 right-0 w-full max-w-[500px] h-full bg-gradient-to-l from-[#111111] to-transparent'></div>
@@ -81,7 +88,7 @@ export default function Hero({ movie, h }) {
 
                         <div className='space-y-4'>
                             <h1 className='font-semibold text-2xl sm:text-5xl drop-shadow-md'>{movie.data.original_title}</h1>
-                            <Truncate text={movie.data.overview} length={150} />
+                            <Truncate showLess={showLess} handleShowLess={handleShowLess} reff={overviewContentRef} text={movie.data.overview} length={150} />
 
                             <div className='flex gap-2 flex-wrap'>
                                 {
