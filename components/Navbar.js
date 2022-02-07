@@ -35,7 +35,7 @@ export default function Navbar() {
     }
 
     return (
-        <div className={`px-5 sm:px-10 py-4 text-gray-50 fixed flex justify-between items-center w-full z-50 ${show && 'backdrop-filter backdrop-blur-md bg-[#111111] bg-opacity-50'} ease-in transition-all`}>
+        <div className={`px-5 sm:px-10 py-4 text-gray-50 fixed flex justify-between items-center w-full z-50 ${show && 'backdrop-filter backdrop-blur-md bg-[#111111]/50'} ease-in transition-all`}>
             <div className={`flex items-center gap-4 ${searchOpen && "w-full sm:w-auto"}`}>
 
                 <div className={`${searchOpen && "hidden sm:block"}`}>
