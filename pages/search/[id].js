@@ -71,7 +71,7 @@ export default function Search({ search }) {
                             <h1 className="text-gray-300">Search results for: {search.id}</h1>
                         </div>
 
-                        <div class="grid justify-items-center grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-9">
+                        <div className="grid justify-items-center grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-9">
                             {
                                 search.data?.results?.map((searchResult, index) => (
                                     (searchResult.backdrop_path !== null || searchResult.poster_path !== null) &&
