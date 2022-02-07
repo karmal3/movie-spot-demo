@@ -48,7 +48,7 @@ export default function Hero({ movie, h }) {
         ));
 
     return (
-        <>
+        <div className=''>
             {
                 movie.trailer.results &&
                 <CustomModal open={open} onClose={handleModal}>
@@ -57,7 +57,7 @@ export default function Hero({ movie, h }) {
             }
 
             <div className='text-gray-200 -mt-10'>
-                <div style={height !== 0 ? { height: `${height}px` } : { height: `${h}vh` }} className='relative'>
+                <div style={height !== 0 ? { height: `${height}px` } : { height: `${h}vh` }} className='relative '>
 
                     <div className='absolute z-10 w-full max-w-[1000px] h-full bg-gradient-to-r from-[#111111] to-transparent'></div>
                     <div className='absolute z-10 right-0 w-full max-w-[500px] h-full bg-gradient-to-l from-[#111111] to-transparent'></div>
@@ -133,7 +133,7 @@ export default function Hero({ movie, h }) {
                         alt={movie.data.original_title}
                     />
                 </div>
-                <div className='flex justify-center items-center w-full px-5 sm:px-10'>
+                <div className='flex flex-wrap justify-center items-center w-full px-5 sm:px-10'>
                     {
                         movie.data.production_companies.map((company, index) => (
                             company.logo_path !== null &&
@@ -152,7 +152,7 @@ export default function Hero({ movie, h }) {
                             // </div>
                             <div key={index} className='p-5'>
                                 {/* <h1>{company.name}</h1> */}
-                                <img className={`max-h-10 w-full object-fit`}
+                                <img className={`max-h-8 w-full object-contain`}
                                     src={`https://image.tmdb.org/t/p/original/${company.logo_path}`}
                                     alt={company.name}
                                 />
@@ -161,7 +161,7 @@ export default function Hero({ movie, h }) {
                     }
                 </div>
             </div>
-        </>
+        </div>
 
     );
 }
