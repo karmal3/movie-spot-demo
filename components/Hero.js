@@ -1,11 +1,22 @@
 import Image from 'next/image';
-import { Children, Fragment, useEffect, useState } from 'react';
+import { Children, Fragment, useEffect, useRef, useState } from 'react';
+import useWindowSize from '../hooks/useWindowSize';
 import CustomModal from './CustomModal';
 import Truncate from './Truncate';
 import YoutubeEmbed from './YoutubeEmbed';
 
 export default function Hero({ movie, h }) {
+    const movieContentRef = useRef(null);
     const [open, setOpen] = useState(false);
+    const [height, setHeight] = useState(0);
+    const { windowSize } = useWindowSize()
+
+    //console.log(windowSize.width)
+    useEffect(() => {
+        //console.log(movieContentRef.current.clientHeight)
+        setHeight(movieContentRef.current.clientHeight)
+    }, [windowSize.width]);
+
 
     useEffect(() => {
         return function cleanup() {
@@ -40,13 +51,13 @@ export default function Hero({ movie, h }) {
             }
 
             <div className='text-gray-200 -mt-10'>
-                <div className='relative'>
+                <div style={{ height: `${height}px` }} className='relative'>
 
                     <div className='absolute z-10 w-full max-w-[1000px] h-full bg-gradient-to-r from-[#111111] to-transparent'></div>
                     <div className='absolute z-10 right-0 w-full max-w-[500px] h-full bg-gradient-to-l from-[#111111] to-transparent'></div>
                     <div className='absolute z-10 bottom-0 w-full h-full max-h-[500px] bg-gradient-to-t from-[#111111] to-transparent'></div>
 
-                    <div className='absolute z-20 px-5 sm:px-10 top-[15%] sm:top-1/3 flex flex-col justify-center items-start space-y-2'>
+                    <div ref={movieContentRef} className='absolute z-20 px-5 py-32 sm:py-64  sm:px-10 flex flex-col justify-center items-start space-y-2'>
 
                         <div className='flex flex-wrap items-center gap-3'>
                             <span className='flex justify-center items-center gap-1 uppercase font-thin border border-solid border-yellow-600 text-yellow-500 px-2 rounded-md text-sm'>
@@ -110,8 +121,8 @@ export default function Hero({ movie, h }) {
                         />
                     </div> */}
                     <img
-                        style={{ height: `${h}vh` }}
-                        className='w-full object-cover object-top'
+                        
+                        className='w-full object-cover object-top h-full'
                         src={`https://image.tmdb.org/t/p/original/${movie.data.backdrop_path}`}
                         alt={movie.data.original_title}
                     />
