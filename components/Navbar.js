@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 export default function Navbar() {
     const [show, handleShow] = useState(false);
-    const [searchOpen, setSearchOpen] = useState(true);
+    const [searchOpen, setSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const router = useRouter()
 
