@@ -106,7 +106,7 @@ export default function Hero({ movie, h }) {
                                     <svg xmlns="http://www.w3.org/2000/svg" className="relative h-5 w-5 group-hover:text-red-600" viewBox="0 0 20 20" fill="currentColor">
                                         <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                                     </svg>
-                                    <span className="relative transition duration-500 ease-out bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-l group-hover:from-red-400 group-hover:to-red-700">
+                                    <span className="relative transition duration-500 ease-out bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-l group-hover:from-red-400 group-hover:to-red-600">
                                         Add to watchlist
                                     </span>
                                 </button>
