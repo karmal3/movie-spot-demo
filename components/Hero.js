@@ -23,7 +23,7 @@ export default function Hero({ movie, h }) {
     useEffect(() => {
         setHeight(movieContentRef.current.clientHeight)
     }, [windowSize.width, showLess]);
- 
+
     useEffect(() => {
         return function cleanup() {
             document.body.style.overflow = 'unset';
@@ -111,7 +111,20 @@ export default function Hero({ movie, h }) {
                             </div>
                         </div>
                     </div>
-
+                    <div className='absolute bottom-0 z-20 flex flex-wrap justify-center items-center w-full px-5 sm:px-10'>
+                        {
+                            movie.data.production_companies.map((company, index) => (
+                                company.logo_path !== null &&
+                                <div key={index} className='p-5'>
+                                    {/* <h1>{company.name}</h1> */}
+                                    <img className={`max-h-8 w-full object-contain`}
+                                        src={`https://image.tmdb.org/t/p/original/${company.logo_path}`}
+                                        alt={company.name}
+                                    />
+                                </div>
+                            ))
+                        }
+                    </div>
                     {/* <div style={{ height: `${h}vh` }} className="w-full z-0" >
                         <Image
                             src={`https://image.tmdb.org/t/p/original/${movie.data.backdrop_path}`}
@@ -127,39 +140,13 @@ export default function Hero({ movie, h }) {
                         />
                     </div> */}
                     <img
-                        
+
                         className='w-full object-cover object-top h-full'
                         src={`https://image.tmdb.org/t/p/original/${movie.data.backdrop_path}`}
                         alt={movie.data.original_title}
                     />
                 </div>
-                <div className='flex flex-wrap justify-center items-center w-full px-5 sm:px-10'>
-                    {
-                        movie.data.production_companies.map((company, index) => (
-                            company.logo_path !== null &&
-                            // <div key={index} className='p-7 relative h-full max-h-10'>
-                            //     {/* <h1>{company.name}</h1> */}
-                            //     <Image
-                            //         src={`https://image.tmdb.org/t/p/original/${company.logo_path}`}
-                            //         alt={company.name}
-                            //         layout={"fill"}
-                            //         objectFit={"contain"}
-                            //         placeholder="blur"
-                            //         loading="eager"
-                            //         blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mMUrAcAAKcAkqLcIOsAAAAASUVORK5CYII='
 
-                            //     />
-                            // </div>
-                            <div key={index} className='p-5'>
-                                {/* <h1>{company.name}</h1> */}
-                                <img className={`max-h-8 w-full object-contain`}
-                                    src={`https://image.tmdb.org/t/p/original/${company.logo_path}`}
-                                    alt={company.name}
-                                />
-                            </div>
-                        ))
-                    }
-                </div>
             </div>
         </div>
 
