@@ -92,7 +92,8 @@ export default function Hero({ movie, h }) {
                             <div className='flex gap-2 flex-wrap'>
                                 {
                                     movie.trailer.results?.length !== 0 &&
-                                    <button onClick={() => { setOpen(true); document.body.style.overflow = 'hidden'; }} className="relative w-auto px-4 py-2 group overflow-hidden font-semibold text-sm bg-red-600 text-gray-100 flex justify-center items-center gap-2">
+                                    <button onClick={() => { setOpen(true); document.body.style.overflow = 'hidden'; }} 
+                                    className="relative w-auto px-3 py-2 group overflow-hidden font-semibold text-sm bg-red-600 text-gray-100 flex justify-center items-center gap-2">
                                         <span className="absolute top-0 left-0 flex h-full w-0 mb-0 transition-all duration-300 ease-out bg-black group-hover:w-full opacity-100"></span>
                                         <svg xmlns="http://www.w3.org/2000/svg" className="relative h-5 w-5 group-hover:text-white" viewBox="0 0 20 20" fill="currentColor">
                                             <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm3 2h6v4H7V5zm8 8v2h1v-2h-1zm-2-2H7v4h6v-4zm2 0h1V9h-1v2zm1-4V5h-1v2h1zM5 5v2H4V5h1zm0 4H4v2h1V9zm-1 4h1v2H4v-2z" clipRule="evenodd" />
@@ -100,7 +101,7 @@ export default function Hero({ movie, h }) {
                                         <span className=" relative group-hover:text-white">Watch trailer</span>
                                     </button>
                                 }
-                                <button className="relative w-auto px-4 py-2 group overflow-hidden font-semibold text-sm bg-black text-gray-100 flex justify-center items-center gap-2">
+                                <button className="relative w-auto px-3 py-2 group overflow-hidden font-semibold text-sm bg-black text-gray-100 flex justify-center items-center gap-2">
                                     <span className="absolute top-0 left-0 flex h-full w-0 mb-0 transition-all duration-300 ease-out bg-[#0c0c0c] group-hover:w-full opacity-100"></span>
 
                                     <svg xmlns="http://www.w3.org/2000/svg" className="relative h-5 w-5 group-hover:text-red-600" viewBox="0 0 20 20" fill="currentColor">

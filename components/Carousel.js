@@ -102,10 +102,10 @@ export default function Carousel({ data, type, title, cardHeight, cardWidth }) {
         <div className='py-4'>
             <div className={`pb-2 gap-2 text-red-600 flex items-center px-5 sm:px-10`}>
                 <AddSeparators separator=' | '>
-                    <h1 className={`text-xl text-gray-200 `}>{title}</h1>
+                    <h1 className={`text-lg sm:text-xl text-gray-200 `}>{title}</h1>
                     {
                         (data.total_pages > 1) &&
-                        <a className='flex items-center gap-2 cursor-pointer text-xl font-extralight text-gray-200 hover:text-red-600 '>
+                        <a className='flex items-center gap-2 cursor-pointer text-lg sm:text-xl font-extralight text-gray-200 hover:text-red-600 '>
                             Watch all
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -116,9 +116,7 @@ export default function Carousel({ data, type, title, cardHeight, cardWidth }) {
             </div>
             <div className={`transition duration-1000 transform ${leftArrow && "pl-3 sm:pl-8"} ${rightArrow && "pr-5 -ml-5 sm:pr-10 sm:-ml-10"}`}>
 
-
                 <div className={`relative h-full w-full flex items-center`}>
-
                     <button onClick={() => clientClick("left")}
                         style={{ height: `${cardHeight}px` }} className={`${leftArrow && "hidden"} ${rightArrow && "pl-20"} ${isMobile && "hidden"} p-10 z-20 left-0 flex justify-center items-center absolute rounded-r bg-gradient-to-r from-black to-transparent`}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
