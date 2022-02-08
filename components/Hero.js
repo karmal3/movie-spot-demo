@@ -63,7 +63,7 @@ export default function Hero({ movie, h }) {
                     <div className='absolute z-10 right-0 w-full max-w-[500px] h-full bg-gradient-to-l from-[#111111] to-transparent'></div>
                     <div className='absolute z-10 bottom-0 w-full h-full max-h-[500px] bg-gradient-to-t from-[#111111] to-transparent'></div>
 
-                    <div ref={movieContentRef} className='absolute z-20 px-5 py-32 sm:py-64 sm:px-10 flex flex-col justify-center items-start w-full space-y-2'>
+                    <div ref={movieContentRef} className='absolute z-20 px-5 py-32 sm:py-56 sm:px-10 flex flex-col justify-center items-start w-full space-y-2'>
 
                         <div className='flex flex-wrap items-center gap-3'>
                             <span className='flex justify-center items-center gap-1 uppercase font-thin border border-solid border-yellow-600 text-yellow-500 px-2 rounded-md text-sm'>
@@ -106,39 +106,13 @@ export default function Hero({ movie, h }) {
                                     <svg xmlns="http://www.w3.org/2000/svg" className="relative h-5 w-5 group-hover:text-red-600" viewBox="0 0 20 20" fill="currentColor">
                                         <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                                     </svg>
-                                    <span className="relative group-hover:text-white">Add to watchlist</span>
+                                    <span className="relative transition duration-500 ease-out bg-clip-text group-hover:text-transparent group-hover:bg-gradient-to-l group-hover:from-red-400 group-hover:to-red-700">
+                                        Add to watchlist
+                                    </span>
                                 </button>
                             </div>
                         </div>
                     </div>
-                    <div className='absolute bottom-0 z-20 flex flex-wrap justify-center items-center w-full px-5 sm:px-10'>
-                        {
-                            movie.data.production_companies.map((company, index) => (
-                                company.logo_path !== null &&
-                                <div key={index} className='p-5'>
-                                    {/* <h1>{company.name}</h1> */}
-                                    <img className={`max-h-8 w-full object-contain`}
-                                        src={`https://image.tmdb.org/t/p/original/${company.logo_path}`}
-                                        alt={company.name}
-                                    />
-                                </div>
-                            ))
-                        }
-                    </div>
-                    {/* <div style={{ height: `${h}vh` }} className="w-full z-0" >
-                        <Image
-                            src={`https://image.tmdb.org/t/p/original/${movie.data.backdrop_path}`}
-                            alt={movie.data.original_title}
-                            layout='fill'
-                            objectFit='cover'
-                            objectPosition={"top"}
-                            placeholder="blur"
-                            loading="eager"
-                            quality={100}
-                            blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mMUrAcAAKcAkqLcIOsAAAAASUVORK5CYII='
-                            priority
-                        />
-                    </div> */}
                     <img
 
                         className='w-full object-cover object-top h-full'
@@ -146,7 +120,20 @@ export default function Hero({ movie, h }) {
                         alt={movie.data.original_title}
                     />
                 </div>
-
+                <div className='flex flex-wrap justify-center items-center w-full px-5 sm:px-10'>
+                    {
+                        movie.data.production_companies.map((company, index) => (
+                            company.logo_path !== null &&
+                            <div key={index} className='p-5'>
+                                {/* <h1>{company.name}</h1> */}
+                                <img className={`max-h-8 w-full object-contain`}
+                                    src={`https://image.tmdb.org/t/p/original/${company.logo_path}`}
+                                    alt={company.name}
+                                />
+                            </div>
+                        ))
+                    }
+                </div>
             </div>
         </div>
 
