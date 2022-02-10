@@ -143,9 +143,8 @@ export default function Carousel({ data, type, title, cardHeight, cardWidth }) {
                                 ))
                                 :
                                 data.results?.map((obj, index) => (
-                                    (obj.backdrop_path !== null || obj.poster_path !== null) ?
-                                        <Card key={index} data={obj} w={cardWidth} h={cardHeight} />
-                                        : <h1>Loading</h1>
+                                    (obj.backdrop_path !== null || obj.poster_path !== null) &&
+                                    <Card key={index} data={obj} w={cardWidth} h={cardHeight} />
                                 ))
                         }
                     </div>
