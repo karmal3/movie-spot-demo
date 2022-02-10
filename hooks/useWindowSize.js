@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export default function useWindowMobile() {
+export default function useWindowSize() {
     // Initialize state with undefined width/height so server and client renders match
     const [isMobile, setIsMobile] = useState(false);
     const [windowSize, setWindowSize] = useState({
