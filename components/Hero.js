@@ -116,7 +116,7 @@ export default function Hero({ movie, h }) {
                     <img
 
                         className='w-full object-cover object-top h-full'
-                        src={`https://image.tmdb.org/t/p/original/${movie.data.backdrop_path}`}
+                        src={`https://image.tmdb.org/t/p/original/${movie.data.backdrop_path ? movie.data.backdrop_path : movie.data.poster_path}`}
                         alt={movie.data.original_title}
                     />
                 </div>
